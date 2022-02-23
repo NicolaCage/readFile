@@ -1,0 +1,51 @@
+const fs = require('fs');
+const showdown  = require('showdown');
+const matter = require('gray-matter');
+const createCsvWriter = require('csv-writer').createArrayCsvWriter;
+
+const csvWriter = createCsvWriter({
+    header: ['Title','Slug','Published on','Post Body','Description','Thumbnail image','Author','tags'],
+    path: './post.csv'
+});
+
+var getAHref = function(htmlstr){
+    var reg = /<img [^>]*src=['"]([^'"]+)[^>]*>/gi
+    var arr = [];
+    while(tem=reg.exec(htmlstr)){
+        arr.push(tem[1]);
+    }
+    return arr;
+}
+
+const download=()=>{
+    const files = fs.readdirSync('./posts');
+    const csvItems = []
+    const tags = new Set([])
+    files.forEach(filename =>{
+        if(filename !=='.DS_Store'){
+            let readMe = fs.readFileSync(`./posts/${filename}/index.md`, 'utf8');
+            //获取md文件头部字段信息
+            const { data, content} = matter(readMe);
+            //获取md文件的正文
+            const converter = new showdown.Converter()
+            const html = converter.makeHtml(content);
+            data.tags.map(_tag => tags.add(_tag))
+            //定义每行的列数
+            let csvItem = [
+                data.title,
+                filename,
+                data.data,
+                html,
+                data.description,
+                getAHref(html)[0],
+                data.author,
+                data.tags.join(';')
+            ]
+            
+            csvItems.push(csvItem)
+        }
+    })
+    console.log("tags",tags) //总tag 发给运营同学
+    csvWriter.writeRecords(csvItems).then(() => console.log('Done~'));
+}
+download();     
