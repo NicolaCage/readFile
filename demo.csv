@@ -1,5 +1,5 @@
 Title,Slug,Published on,Post Body,Description,Thumbnail image,Author,tags
-Game of Thrones Character Relationships,game-of-thrones,,"<p><img src=""./game_of_thrones_dataset.png"" alt=""featured-image"" /></p>
+Game of Thrones Character Relationships,game-of-thrones,Mon Nov 01 2021 08:00:00 GMT+0800 (‰∏_____∂È_),"<p classname =""code-test""><img src=""./game_of_thrones_dataset.png"" alt=""featured-image"" /></p>
 <p>In this dataset, we will use the visual graph exploration tool Nebula Explorer to explore the publicly available data relationships in Game of Thrones.</p>
 <h2 id=""quickstart1"">Quick start: 1.</h2>
 <ol>
@@ -11,7 +11,7 @@ Game of Thrones Character Relationships,game-of-thrones,,"<p><img src=""./game_o
 <h2 id=""details"">Details.</h2>
 <p>""Game of Thrones"" is a TV series that everyone likes very much, and the wonderfully complex character relationships are a very good case study for exploring people and their relationships.</p>
 <p>The traditional table format can not intuitively reflect the scale of the relationship, while the graph format can very easily reflect the complexity of the relationship, and quickly dig the relationship between the characters.</p>
-<p>Complexity of this dataset: ‚òÖ‚òÜ‚òÜ‚òÜ‚òÜ</p>
+<p>Complexity of this dataset: _______</p>
 <p>The structure of this dataset, as shown in the figure:<br></p>
 <h5 id=""tagperson"">tag: person</h5>
 <h5 id=""edgerelation"">edge: relation</h5>
@@ -48,163 +48,4 @@ Robert-Baratheon
 </blockquote>
 <p>We can learn in the results, who has richer interpersonal relationships, already which people are in which camps, the size of family relationships, etc.</p>
 <p>Dataset file: <a href=""https://github.com/yyh0808/game-of-thrones-dataset-nebula"">Download address</a></p>
-<p>Related article: <a href=""https://blog.csdn.net/weixin_44324814/article/details/108100159"">Analyzing ÔºúGame of ThronesÔºû character relationships with NetworkX + Gephi + Nebula Graph</a></p>","In this dataset, we will use the visual graph exploration tool Nebula Explorer to explore the publicly available data relationships in Game of Thrones.",./game_of_thrones_dataset.png,Xiaolang & Zhangkun & Wangjie,playground
-Game Pocket Monsters with Nebula Graph,game-pocket-monsters,,"<h1 id=""therelationshipofpocketmonstersinthegame"">The relationship of pocket monsters in the game</h1>
-<p>In this case, we use the game's publicly available dataset, imported into studio, to show you how to take advantage of the Nebula Graph to demonstrate the value of the graph database. Interested users can try it out for themselves (GameMonsters Graph database).</p>
-<h2 id=""quickstart"">Quick start.</h2>
-<ol>
-<li><p>Visit Nebula Playground: <a href=""https://playground.nebula-graph.com.cn/explore?name_space=Game_Monsters"">Game_monsters</a></p></li>
-<li><p>Click on ""Start exploring"". 3.</p></li>
-<li><p>There are 2 ways to import data.</p>
-<blockquote>
-  <p>Method 1: VID query, fill in a list of IDs for the following vertices:<br>
-    monster001 <br>
-    monster002 <br>
-    monster003 <br>
-    monster025 <br>
-    monster026 <br>
-    monster133 <br>
-    monster134 <br>
-    monster135 <br>
-    monster136 <br></p>
-  <p>Method 2: Click on the index query, select the tag and index, add a quantity limit, e.g. 50, click on the plus sign and add an index condition, e.g.</p>
-</blockquote></li>
-<li><p>By this time the vertices should be displayed, you can double click them, or use the right sidebar to expand the conditions for edge expansion.</p></li>
-</ol>
-<h2 id=""details"">Details.</h2>
-<p>Game business scenarios often encounter relationship problems, characters and characters, characters and monsters, pets, NPCs, props, etc.</p>
-<p>With the traditional form of tables, it is impossible to find the required relationships intuitively, here we take the game as an example, using publicly available data to provide everyone online experience Nebula Graph graph database.</p>
-<p>The structure of this game dataset, as shown in the figure:&lt;br</p>
-<h5 id=""tagmonsterpropertypersonbr"">Tag: monster, property, person <br></h5>
-<h5 id=""vertex151monsters9properties13charactersbr"">Vertex: 151 monsters, 9 properties, 13 characters <br></h5>
-<h5 id=""edgepropertyrelationshipdamagedoublingdamagehalvingattributionevolutionrelationshipbr"">Edge: property relationship, damage doubling, damage halving, attribution, evolution relationship <br></h5>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/Frame1.png"" alt=""monsters"" /></p>
-<p>Let's start by looking up something related to a famous 025 yellow monster.</p>
-<ul>
-<li><p>Go to the studio graph exploration screen.</p></li>
-<li><p>The top left corner confirms that we are currently in the Game_Monsters space (the space of the game dataset)
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image001.png"" alt=""monsters"" /></p></li>
-<li><p>Click the Start Exploration button on the right
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image002.png"" alt=""monsters"" /></p></li>
-<li><p>Enter vid: monster025</p></li>
-<li><p>Click to confirm
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image003.png"" alt=""monsters"" /></p></li>
-</ul>
-<p>You can find out the vertex of the yellow charged monster number 025. (VID is monster001 - monster151)</p>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image004.png"" alt=""monsters"" />
-Double click on the point to automatically expand all related points</p>
-<p>For example, you can see the vertex of a certain monster with a longer tail and a charged partner, 026, of the evolutionary relation 025.
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image005.png"" alt=""monsters"" /></p>
-<p>At the same time click on the attribute display button, check the box to select the attributes we need to display, you can see the vertex in the figure corresponding to the value of the attribute. For example: name, attack power, defense power, etc.
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image006.png"" alt=""monsters"" /></p>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image007.png"" alt=""monsters"" /></p>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image008.png"" alt=""monsters"" /></p>
-<p>In the result of the query, we can also see that there is a vertex for the attribute, and the tag for the monster attribute, with the same name.</p>
-<blockquote>
-  <p>How to build the data structure often needs to be designed by the user</p>
-</blockquote>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image009.png"" alt=""monsters"" /></p>
-<p>Clicking on this attribute vertex will automatically expand it, at this vertex we can visually view all the monsters with electric attributes, each vertices shows the corresponding attribute value, and intuitively find all the monsters of the electric family
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image010.png"" alt=""monsters"" /></p>
-<p>With the right sidebar, we can also expand the edges exactly as needed.</p>
-<p>For example, keeping only one vertex of the canvas, the electric property</p>
-<ul>
-<li>delete the rest of the vertices of the canvas.</li>
-<li>click on the edge type in the right sidebar and select only damage</li>
-<li>Select outflow for direction, 1 for step, and leave everything else the same
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image011.png"" alt=""monsters"" /></li>
-<li>This time click the expand button, you can expand the attribute relationship, you can see the relationship of attacking other attributes through the edge, electricity attribute can do double damage to water attribute, but half damage to grass attribute, and very low damage to rock attribute.
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image012.png"" alt=""monsters"" /></li>
-</ul>
-<h3 id=""nowletslookupthecharacterrelationships"">Now, let's look up the character relationships</h3>
-<p>By vid query enter</p>
-<pre><code>person1 
-person2 
-person3
-person4 
-person5
-person6
-person7
-person8
-person9
-person10
-person11
-person12
-person13
-</code></pre>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image013.png"" alt=""monsters"" /></p>
-<p>From the results, you can see 8 big city dojo directors, former champions, and 4 major divas
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image014.png"" alt=""monsters"" /></p>
-<p>Double click on a person's vertex to see the monsters he has
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image015.png"" alt=""monsters"" /></p>
-<p>Clicking on each monster allows us to quickly expand the relationship and find the attributes that are incompatible with each other
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image016.png"" alt=""monsters"" /></p>
-<p>Double click on the restraining attribute to quickly expand a group of monsters with that attribute, and select the monsters you have to double the damage on the boss's monsters, or select the monsters that halve the damage for defense.
-<img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/image017.png"" alt=""monsters"" /></p>
-<blockquote>
-  <h4 id=""thisisatypicalwaytousegraphsforquickgamestrategysearchandtheyhaveahugeadvantageoverthetraditionaltableformatintermsofcorrelations"">This is a typical way to use graphs for quick game strategy search, and they have a huge advantage over the traditional table format in terms of correlations.</h4>
-</blockquote>
-<p>We hope this public data demo is helpful for you to win the game.</p>
-<p>If you are interested in the example, click Quick Start and try it out for yourself. If you want to modify or add data, submit pr to this <a href=""https://github.com/Kun8018/nebula-monster-data"">repo</a></p>
-<p><a href=""https://playground.nebula-graph.com.cn/explore?name_space=Game_Monsters"">Game_monsters</a></p>
-<p>Reference.</p>
-<p>Studio video presentation https://www.bilibili.com/video/BV1QN411Z7Vh . </p>
-<p>Figure Exploration, Nebula-Studio Manual https://docs.nebula-graph.com.cn/master/nebula-studio/st-ug-toc/ </p>
-<p>nGQL, CRUD manual https://docs.nebula-graph.com.cn/master/2.quick-start/4.nebula-graph-crud</p>","In this case, we use the game's publicly available dataset, imported into studio, to show you how to take advantage of the Nebula Graph to demonstrate the value of the graph database.",https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/monsters/Frame1.png,"xiaolang, kun",playground
-Basketball Player and Teams,playground-basketball-player,,"<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/demo1.png"" alt=""featured-image"" /></p>
-<p>A set of <a href=""https://docs.nebula-graph.io/master/3.ngql-guide/1.nGQL-overview/1.overview/#example_data"">data example</a> was loaded in this demo environment. You could try exploring graph data visually, and make nGQL queries from its web console.</p>
-<p>Please further read the following documentations:</p>
-<ul>
-<li><a href=""https://docs.nebula-graph.io/master/nebula-studio/st-ug-toc/"">Studio Guide</a></li>
-<li><a href=""https://docs.nebula-graph.io/master/2.quick-start/4.nebula-graph-crud"">nGQL CRUD</a></li>
-</ul>
-<p>Quick start:</p>
-<p><a href=""https://youtu.be/34NBVinspoA""><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/playground-video-screen-0-youtube.webp"" alt=""video-intro"" /></a></p>
-<ol>
-<li><p>Click <a href=""https://playground.nebula-graph.io/explore?name_space=basketballplayer"">Nebula Playground: Basketball Player</a>, refresh if it's not automactically logged in, it may also asked for spaces selection, select the <code>basketballplayer</code> in this case.</p></li>
-<li><p>Click <code>Start with Vertices</code> Button.</p></li>
-<li><p>Fill the following vertices' ID, and click Add:</p></li>
-</ol>
-<pre><code>player100
-player101
-team200
-team201
-</code></pre>
-<ol start=""4"">
-<li>Then you can double click vertices to explore them via their edges</li>
-<li>Next, explore more via documentations.</li>
-</ol>
-<blockquote>
-  <p>Note:</p>
-  <ol>
-  <li>Data in the demo environment will be reset periodically</li>
-  <li>Not all permissions were granted for the users in the demo environment</li>
-  </ol>
-</blockquote>","A set of data example was loaded in this demo environment. You could try exploring graph data visually, and make nGQL queries from its web console.",https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/demo1.png,wey,playground
-Nebula Shareholding Example,shared-holding,,"<p>This is a generated dataset with two kinds of vertices and four kinds of edges(relationships):</p>
-<p>person can hold a corp in {share} %
-person can be relative with another person
-corp can hold another corp in {share} %
-corp can be a branch of another corp
-person can be as a role of a corp</p>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/shared-holding/modeling.png"" alt=""modeling"" /></p>
-<p>Within the playground, you can visually explore the shareholding data from select vertices(i.e. ""c_132"" with the name ""Chambers LLC"") by selecting:</p>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/shared-holding/studio_explore_0.png"" alt=""studio_explore_0"" /></p>
-<p>click this explored vertex dot, then you can explore from select vertices by selecting:</p>
-<ul>
-<li>Edge Type</li>
-<li>Direction</li>
-<li>Steps</li>
-<li>Query Limit(Optional)</li>
-</ul>
-<blockquote>
-  <p>note, you can click the üëÅÔ∏è icon to add options to show fields of the graph,</p>
-</blockquote>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/shared-holding/studio_explore_1.png"" alt=""studio_explore_1"" /></p>
-<p>After clicking Expand, you will see all queried relations with c_132 the Chambers LLC.</p>
-<p><img src=""https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/shared-holding/studio_explore_2.png"" alt=""studio_explore_2"" /></p>
-<p>Alternatively, you could query nGQL via console like:</p>
-<pre><code class=""ngql language-ngql"">GO 1 TO 3 STEPS FROM ""c_132"" over * BIDIRECT;
-</code></pre>
-<p>Read for more of the dataset, refer to https://github.com/wey-gu/nebula-shareholding-example</p>
-<p>Download sample dataset: <a href=""https://www.kaggle.com/littlewey/nebula-graph-shareolding-dataset"">shareholding-dataset</a></p>",A generated dataset to demostrate how relationships could be explored with nebula graph,https://nebula-website-cn.oss-cn-hangzhou.aliyuncs.com/nebula-website/images/demo/shared-holding/modeling.png,wey,playground
+<p>Related article: <a href=""https://blog.csdn.net/weixin_44324814/article/details/108100159"">Analyzing Ôº_ame of ThronesÔº character relationships with NetworkX + Gephi + Nebula Graph</a></p>","In this dataset, we will use the visual graph exploration tool Nebula Explorer to explore the publicly available data relationships in Game of Thrones.",./game_of_thrones_dataset.png,Xiaolang & Zhangkun & Wangjie,playground

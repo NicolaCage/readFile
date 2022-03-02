@@ -35,7 +35,7 @@ const download=()=>{
             let csvItem = [
                 data.title,
                 filename,
-                data.data,
+                data.date,
                 html,
                 data.description,
                 getAHref(html)[0],

@@ -1,0 +1,67 @@
+<body>
+    <!-- <p>If you want to do a check of the format of the returned result of SHOW JOBS, you can add a feature file named JobCommands.feature under the directory: <a href=""https://github.com/vesoft-inc/nebula-graph/tree/master/tests/tck/features/job"">nebula-graph/tests/tck/features/job/</a>.</p>
+    <pre><code>@mintest                                                         # A tag. This is for debugging.
+    
+    Feature: Job compact, flush, rebuild_index
+    
+      Background:                                     # Choose a graph space with a dataset.
+        Given a graph with space named ""basketballplayer""
+    
+      Scenario: submit job
+        When executing query:
+          """"""
+          SUBMIT JOB COMPACT;
+          """"""
+        Then the result should contain:
+          | New Job Id |
+          | /\d+/          |              # Write a regular expression for positive integers
+        When executing query:
+          """"""
+          SUBMIT JOB FLUSH;
+          """"""
+         When executing query:
+          """"""
+          SUBMIT JOB STATS;
+    
+          SHOW JOBS;
+          """"""
+        Then the result should contain:   # Do a check of the result format
+          | Job Id | Command | Status  | Start Time                               | Stop Time                 |
+          | /\d+/  | ""STATS""      | /\w+/  | /\d+-\d+-\d+T\d+:\d+:\d+/ | /\d+-\d+-\d+T\d+:\d+:\d+/ |
+    </code></pre>
+    <h4>Debugging a Test Case</h4>
+    <pre><code class=""bash language-bash""># Processing tags  
+        tags: [  
+          
+          # Loading data from the HDFS files. The data type is Parquet. The tag name is ${TAG_NAME}.
+          # The field_0, field_1 in the HDFS Parquet file are written to the ${TAG_NAME}.
+          # The vertex column is ${KEY_FIELD}.
+          {  
+            name: ${TAG_NAME}  
+            type: parquet  
+            path: ${HDFS_PATH}  
+            fields: {  
+              field_0: nebula_field_0,  
+              field_1: nebula_field_1  
+            }  
+            vertex: ${KEY_FIELD}  
+            batch : 16  
+          }  
+          
+          # Similar to the preceding section.
+          # Loaded from Hive. The execution command $ {EXEC} is the dataset.
+          {  
+            name: ${TAG_NAME}  
+            type: hive  
+            exec: ${EXEC}  
+            fields: {  
+              hive_field_0: nebula_field_0,  
+              hive_field_1: nebula_field_1  
+            }  
+            vertex: ${KEY_FIELD}
+          }  
+        ]
+        </code></pre>
+        <p>Descriptions:</p> -->
+        nebula-test is a BDD-based testing framework. All these feature files are written in Gherkin. For more information about BDD, refer to <a href=""https://nebula-graph.io/posts/bdd-testing-practice/"">BDD-Based Integration Testing Framework for Nebula Graph: Part I</a>.<br/><br/>Here is an introduction to the sections of a feature file:<br/><br/>- Feature: Gives the subject of the file.<br/>- Background: Gives the steps that are common to all the scenarios in the same feature file. In this example, a ready graph space named ""basketballplayer"", with schema, indexes, and data, is selected.<br/>- Scenario: Composed of a pair of <code>When</code> and <code>Then</code> steps. A scenario is the smallest unit of concurrent execution.<br/>- When executing query: Sends a series of commands to Nebula Graph.<br/>- Then the result should be: Obtains the result from Nebula Graph and compares the result with the expected result.<br/><br/>The returned result can be compared with the expected result with one of these methods:<br/><br/>- the result should be: The results must be exactly the same, which means the content of the rows, columns, and records are exactly the same.<br/>- the result should contain: If the returned result contain the mentioned content in the expected result, it is considered valid.<br/>- the result should be, in any order: The order of rows in the returned result is not used to determine the legality of the result.<br/>- the result should be, in any order, with relax comparison: The returned result should comply with the given format but the order of the rows does not matter. Besides, the result must contain the specified content. For example, each record must has one or more ""Tiago Splitter"" strings.<br/>- the execution should be successful: The execution is successful.<br/>- an ExecutionError should be raised at runtime: not existed! The execution failed. The ExecutionError exception is thrown, and the error code is <code>not existed!</code>.<br/><br/>### Writing a Test Case<br/><br/>If you want to do a check of the format of the returned result of SHOW JOBS, you can add a feature file named JobCommands.feature under the directory: <a href=""https://github.com/vesoft-inc/nebula-graph/tree/master/tests/tck/features/job"">nebula-graph/tests/tck/features/job/</a>.<br/><br/><code>&lt;br/&gt;@mintest                                                         # A tag. This is for debugging.&lt;br/&gt;&lt;br/&gt;Feature: Job compact, flush, rebuild_index&lt;br/&gt;&lt;br/&gt;  Background:                                     # Choose a graph space with a dataset.&lt;br/&gt;    Given a graph with space named ""basketballplayer""&lt;br/&gt;&lt;br/&gt;  Scenario: submit job&lt;br/&gt;    When executing query:&lt;br/&gt;      """"""&lt;br/&gt;      SUBMIT JOB COMPACT;&lt;br/&gt;      """"""&lt;br/&gt;    Then the result should contain:&lt;br/&gt;      | New Job Id |&lt;br/&gt;      | /\d+/          |              # Write a regular expression for positive integers&lt;br/&gt;    When executing query:&lt;br/&gt;      """"""&lt;br/&gt;      SUBMIT JOB FLUSH;&lt;br/&gt;      """"""&lt;br/&gt;     When executing query:&lt;br/&gt;      """"""&lt;br/&gt;      SUBMIT JOB STATS;&lt;br/&gt;&lt;br/&gt;      SHOW JOBS;&lt;br/&gt;      """"""&lt;br/&gt;    Then the result should contain:   # Do a check of the result format&lt;br/&gt;      | Job Id | Command | Status  | Start Time                               | Stop Time                 |&lt;br/&gt;      | /\d+/  | ""STATS""      | /\w+/  | /\d+-\d+-\d+T\d+:\d+:\d+/ | /\d+-\d+-\d+T\d+:\d+:\d+/ |&lt;br/&gt;</code><br/><br/>### Debugging a Test Case<br/><br/><code>&lt;br/&gt;nebula-graph/tests&gt; make fmt&lt;br/&gt;</code><br/><br/>Do a check of the format and get the file format valid.<br/><br/><code>&lt;br/&gt;nebula-graph/tests&gt;  pytest -m ""mintest""&lt;br/&gt;</code><br/><br/>Run the test case. In general, the case may need some changes. You can use <code>#</code> to comment out a line or use <code>@skip</code>
+    </body>
